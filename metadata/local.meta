@@ -1,7 +1,11 @@
 [app/ui]
 version = 8.2.5
-modtime = 1645664124.233716000
+modtime = 1645742297.782802800
 
 [app/launcher]
 version = 8.2.5
-modtime = 1645664124.255059100
+modtime = 1645742297.791774800
+
+[app/package/check_for_updates]
+version = 8.2.5
+modtime = 1645742297.799746500
