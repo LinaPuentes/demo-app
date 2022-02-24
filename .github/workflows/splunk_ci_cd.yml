@@ -1,0 +1,35 @@
+name: CI/CD
+
+on:
+  push:
+    branches: master
+  workflow_dispatch:
+
+jobs:
+  empaquetado:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - name: Script para empaquetar
+        run: |
+          echo ${{GITHUB_REF_NAME}}$
+          echo ${{ github.repository }}
+          echo ${{ github.repository }}
+          echo ${{GITHUB_REPOSITORY}}$
+
+          
+# conda activate splunk-app-packager
+# py C:\Users\lpuentes\Documents\actions-runner\_work\packager_script\splunk_app_packager.py 
+# conda deactivate
+#   instalacion:
+#     needs: empaquetado
+#     runs-on: self-hosted
+#     environment: produccion
+#     steps:
+#       - name: Run a one-line script
+#         run: echo holiis again
+
+#       - name: Run a multi-line script
+#         run: |
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
