@@ -23,6 +23,8 @@ jobs:
 #     environment: produccion
     steps:
       - name: Copiar paquete a destino
-        run: dir
+        run: |
+          scp -i C:\Users\lpuentes\Downloads\llave.pem demo-app.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:Paquetes_Splunk
+          curl -k https://${{ secrets.HOST }}:8089/services/apps/local -h "Authorization: Bearer ${{ secrets.TOKEN_AUTH }}" -d "filename=true" -d "name=/home/ec2-user/Paquetes_Splunk/demo-app.tar.gz" -d "update=false"
+          
         
-#scp -i C:\Users\lpuentes\Downloads\llave.pem 
