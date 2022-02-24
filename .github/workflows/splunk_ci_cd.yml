@@ -22,11 +22,7 @@ jobs:
     runs-on: self-hosted
 #     environment: produccion
     steps:
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY_SERVER }}
-          source: "demo-app.tar.gz"
-          target: "Paquetes_Splunk"
+      - name: Copiar paquete a destino
+        run: dir
+        
+#scp -i C:\Users\lpuentes\Downloads\llave.pem 
