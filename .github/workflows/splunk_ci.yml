@@ -20,3 +20,16 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+
+  instalacion_paquete:
+    runs-on: self-hosted
+    environment: produccion
+    steps:
+      - name: Run a one-line script
+        run: echo holiis again
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
