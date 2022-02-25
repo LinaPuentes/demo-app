@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Copiar paquete a destino e instalar
         run: |
-          curl -k https://${{ secrets.HOST }}:8089/services/apps/local -H "Authorization: $TOKEN_AUTH " -d "filename=true" -d "name=/home/ec2-user/Paquetes_Splunk/demo-app.tar.gz" -d "update=true"
+          curl -k https://${{ secrets.HOST }}:8089/services/apps/local -H "Authorization: Bearer $TOKEN_AUTH" -d "filename=true" -d "name=/home/ec2-user/Paquetes_Splunk/demo-app.tar.gz" -d "update=true"
         shell: cmd
         
 #     scp -i C:\Users\lpuentes\Downloads\llave.pem demo-app.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:Paquetes_Splunk
