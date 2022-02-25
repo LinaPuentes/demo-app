@@ -1,34 +1,29 @@
 name: CI/CD
 
 on:
-#   push:
-#     branches: master
+  push:
+    branches: master
   workflow_dispatch:
 
 jobs:
-#   empaquetado:
-#     runs-on: self-hosted
-#     steps:
-#       - uses: actions/checkout@v2
-#       - name: Script para empaquetar
-#         run: |
-#           conda activate splunk-app-packager
-#           py C:\Users\lpuentes\Documents\actions-runner\_work\packager_script\splunk_app_packager.py demo-app
-#           conda deactivate
+  empaquetado:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v2
+      - name: Script para empaquetar
+        run: |
+          conda activate splunk-app-packager
+          py C:\Users\lpuentes\Documents\actions-runner\_work\packager_script\splunk_app_packager.py demo-app
+          conda deactivate
         
 #  ${{ github.repository }}
   instalacion:
-#     needs: empaquetado
+    needs: empaquetado
     runs-on: self-hosted
-#     environment: produccion
-    env:
-      TOKEN_AUTH: ${{ secrets.TOKEN_AUTH }}
+    environment: produccion
     steps:
       - name: Copiar paquete a destino e instalar
         run: |
+          scp -i C:\Users\lpuentes\Downloads\llave.pem demo-app.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:Paquetes_Splunk
           curl -k https://${{ secrets.HOST }}:8089/services/apps/local -H "Authorization: Bearer ${{ secrets.TOKEN_AUTH }}" -d "filename=true" -d "name=/home/ec2-user/Paquetes_Splunk/demo-app.tar.gz" -d "update=true"
         shell: cmd
-        
-#     scp -i C:\Users\lpuentes\Downloads\llave.pem demo-app.tar.gz ${{secrets.USERNAME}}@${{secrets.HOST}}:Paquetes_Splunk
-          
-        
