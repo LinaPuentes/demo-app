@@ -14,3 +14,10 @@ modtime = 1645748501.669836800
 owner = admin
 version = 8.2.5
 modtime = 1645831787.772014100
+
+[savedsearches/tedt]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.2.5
+modtime = 1646084538.714780200
