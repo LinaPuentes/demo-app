@@ -1,5 +1,5 @@
-lookups
+lookups/
 */indexes.conf
 */inputs.conf
-metadata
+metadata/
 *.bak
